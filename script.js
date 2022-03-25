@@ -18,15 +18,22 @@ const characters = [
 
 const cardsContainer = document.querySelector(".cards-container");
 
+// Cards are rendered to the screen through template literal syntax.
 characters.map((character) => {
-  // let characterTemplate = ``
+  // There are special cases, which differentiate cards from each other.
+  // 1- Surprisingly, Adam Warlock character needs more width to match its horizontal rule
+  // 2- American Eagle character has another nickname (aka). Therefore, I created a custom div style with aka to cope with it.
+  let adamWarlockImgWidth = "width: 225px";
   let pStyleWithAka = "margin-bottom: 0";
   let divStyleWithAka =
     "align-items: center; justify-content: end; flex-direction: column";
   let characterTemplate = ` <div style="${
     character.aka ? divStyleWithAka : ""
   }" class="card-container">
-  <img src="${character.image}" class="card-image" alt="" />
+  <div class="card-horizontal-rule">  </div>
+  <img style="${
+    character.name === "Adam Warlock" ? adamWarlockImgWidth : ""
+  }" src="${character.image}" class="card-image" alt="" />
   
   <p style="${
     character.aka ? pStyleWithAka : "margin-bottom: 40px"
@@ -35,17 +42,6 @@ characters.map((character) => {
     character.aka ? character.aka : ""
   }</p>
   </div>`;
-  // cardsContainerHtml;
+  // Finally merge it with cardsContainer innerHtml
   cardsContainer.innerHTML += characterTemplate;
 });
-
-// const cardsArray = [
-//   ` <div class="card-container">
-//   <h1>hello</h1>
-// <img src="images/adamwarlock.png" class="card-image" alt="" />
-// </div>`,
-//   ` <div class="card-container">
-// <h1>hello</h1>
-// <img src="images/adamwarlock.png" class="card-image" alt="" />
-// </div>`,
-// ];
