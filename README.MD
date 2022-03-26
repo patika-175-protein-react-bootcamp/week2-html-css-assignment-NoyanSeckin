@@ -1,6 +1,6 @@
 # Assignment 2
 
-## Bonus: Overlay added 
+## Bonus: Modal added 
 
 ## Screen Shot
 
