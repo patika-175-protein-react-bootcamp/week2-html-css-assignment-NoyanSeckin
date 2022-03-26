@@ -132,7 +132,7 @@ body {
 }
 
 /* Bonus: Overlay added */
-.overlay-close-btn {
+.modal-close-btn {
   font-size: 30px;
   color: red;
   margin-top: 1rem;
@@ -140,11 +140,11 @@ body {
   position: absolute;
   right: 0;
 }
-.overlay-close-btn:hover {
+.modal-close-btn:hover {
   cursor: pointer;
 }
 
-#overlay {
+#modal {
   background-color: #222222;
   border: 1px solid red;
   border-radius: 10px;
@@ -160,16 +160,18 @@ body {
   box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12),
     0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);
   z-index: 2;
-  transition: ease-in-out;
+
 }
+
 .show {
   opacity: 1;
   display: block !important;
+
 }
 
 
 
-.overlay-content {
+.modal-content {
   margin-top: 4rem;
   margin-left: 2rem;
   display: flex;
@@ -178,15 +180,15 @@ body {
   font-family: 'Roboto';
 }
 
-.overlay-image {
+.modal-image {
   width: 500px;
 }
 
-.overlay-text {
+.modal-text {
   align-self: center;
 }
 
-.overlay-text ul{
+.modal-text ul{
   list-style: none;
   padding: 0 3.5rem;
 }

@@ -17,18 +17,18 @@ const characters = [
 ];
 
 const cardsContainer = document.querySelector(".cards-container");
+
 // Cards container div holds cards generated with this map method.
 characters.map((character) => {
   let adamWarlockImgWidth = "width: 225px";
   let pStyleWithAka = "margin-bottom: 0";
   let divStyleWithAka =
     "align-items: center; justify-content: end; flex-direction: column";
-  
+
     // Character template generates each individual card
   let characterTemplate = ` 
   <div 
-  // Bu fonksiyonu normal olarak cagirabiliyorumn, ama icine template literal ile parametre koyunca hata aliyorum.
-    onclick="changeOverlay('${character.name}', '${character.image}')"
+    onclick="changeModal('${character.name}', '${character.image}')"
     class="card-container"
     style="${character.aka ? divStyleWithAka : ""}"
     >
@@ -47,16 +47,16 @@ characters.map((character) => {
   cardsContainer.innerHTML += characterTemplate;
 });
 // Bonus: Overlay is added
-const overlay = document.getElementById("overlay");
-const overlayCloseBtn = document.querySelector(".overlay-close-btn");
-overlayCloseBtn.addEventListener("click", () => {
-  overlay.classList.remove("show");
+const modal = document.getElementById("modal");
+const modalCloseBtn = document.querySelector(".modal-close-btn");
+modalCloseBtn.addEventListener("click", () => {
+  modal.classList.remove("show");
 });
-const overlayImage = document.querySelector(".overlay-image");
-const overlayName = document.querySelector(".overlay-name");
-function changeOverlay(name, image) {
-  overlayName.innerText = name;
-  overlayImage.setAttribute("src", image);
-  overlay.classList.add("show");
+const modalImage = document.querySelector(".modal-image");
+const modalName = document.querySelector(".modal-name");
+function changeModal(name, image) {
+  modalName.innerText = name;
+  modalImage.setAttribute("src", image);
+  modal.classList.add("show");
 }
 
