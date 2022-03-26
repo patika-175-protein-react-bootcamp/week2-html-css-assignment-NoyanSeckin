@@ -1,4 +1,7 @@
 # Assignment 2
+
 ##Bonus: Overlay added 
 
-##Screen Shots
+##Screen Shot
+
+![modal-screenshot](modal-screenshot.png)

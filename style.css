@@ -134,14 +134,15 @@ body {
 /* Bonus: Overlay added */
 .modal-close-btn {
   font-size: 30px;
-  color: red;
-  margin-top: 1rem;
-  margin-right: 1rem;
+  color: rgb(206, 0, 0);
+  margin-top: 3.5rem;
+  margin-right: 4.5rem;
   position: absolute;
   right: 0;
 }
 .modal-close-btn:hover {
   cursor: pointer;
+  color: rgb(165, 79, 79)
 }
 
 #modal {
