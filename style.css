@@ -15,6 +15,13 @@ body {
   width: 100%;
 }
 
+.blur {
+  box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 1);
+  text-shadow: 0px 0px 10px rgba(51, 51, 51, 0.9);
+  transform: scale(0.9);
+  opacity: 0.6;
+}
+
 .marvel-logo {
   width: 600px;
   height: 290px;
@@ -35,6 +42,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 64px;
   row-gap: 105px;
+  position: relative;
 }
 
 .card-container {
@@ -46,7 +54,9 @@ body {
   justify-content: center;
   align-items: flex-end;
 }
-
+.card-container:hover{
+  cursor: pointer;
+}
 .card-image {
   width: 216px;
   height: 324px;
@@ -117,3 +127,67 @@ body {
   border-radius: 30px;
   color: #000000;
 }
+.my-2{
+  margin: 1rem 0;
+}
+
+/* Bonus: Overlay added */
+.overlay-close-btn {
+  font-size: 30px;
+  color: red;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  position: absolute;
+  right: 0;
+}
+.overlay-close-btn:hover {
+  cursor: pointer;
+}
+
+#overlay {
+  background-color: #222222;
+  border: 1px solid red;
+  border-radius: 10px;
+  width: 101%;
+  height: 550px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  display: none;
+  bottom: 200;
+  box-shadow: 0px 9px 46px 8px rgba(0, 0, 0, 0.12),
+    0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 11px 15px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  transition: ease-in-out;
+}
+.show {
+  opacity: 1;
+  display: block !important;
+}
+
+
+
+.overlay-content {
+  margin-top: 4rem;
+  margin-left: 2rem;
+  display: flex;
+  color: #fff;
+  font-size: 25px;
+  font-family: 'Roboto';
+}
+
+.overlay-image {
+  width: 500px;
+}
+
+.overlay-text {
+  align-self: center;
+}
+
+.overlay-text ul{
+  list-style: none;
+  padding: 0 3.5rem;
+}
+

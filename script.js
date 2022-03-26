@@ -17,31 +17,46 @@ const characters = [
 ];
 
 const cardsContainer = document.querySelector(".cards-container");
-
-// Cards are rendered to the screen through template literal syntax.
+// Cards container div holds cards generated with this map method.
 characters.map((character) => {
-  // There are special cases, which differentiate cards from each other.
-  // 1- Surprisingly, Adam Warlock character needs more width to match its horizontal rule
-  // 2- American Eagle character has another nickname (aka). Therefore, I created a custom div style with aka to cope with it.
   let adamWarlockImgWidth = "width: 225px";
   let pStyleWithAka = "margin-bottom: 0";
   let divStyleWithAka =
     "align-items: center; justify-content: end; flex-direction: column";
-  let characterTemplate = ` <div style="${
-    character.aka ? divStyleWithAka : ""
-  }" class="card-container">
-  <div class="card-horizontal-rule">  </div>
-  <img style="${
-    character.name === "Adam Warlock" ? adamWarlockImgWidth : ""
-  }" src="${character.image}" class="card-image" alt="" />
   
-  <p style="${
-    character.aka ? pStyleWithAka : "margin-bottom: 40px"
-  }" class="w-text card-text">${character.name}</p>
-  <p style="margin-top: 0;"  class="w-text card-text">${
-    character.aka ? character.aka : ""
-  }</p>
+    // Character template generates each individual card
+  let characterTemplate = ` 
+  <div 
+  // Bu fonksiyonu normal olarak cagirabiliyorumn, ama icine template literal ile parametre koyunca hata aliyorum.
+    onclick="changeOverlay('${character.name}', '${character.image}')"
+    class="card-container"
+    style="${character.aka ? divStyleWithAka : ""}"
+    >
+    <div class="card-horizontal-rule"> </div>
+    <img style="${
+      character.name === "Adam Warlock" ? adamWarlockImgWidth : ""
+    }" src="${character.image}" class="card-image" alt="" />
+    
+    <p class="w-text card-text" style="${
+      character.aka ? pStyleWithAka : "margin-bottom: 40px"
+    }" >${character.name}</p>
+    <p style="margin-top: 0;"  class="w-text card-text">${
+      character.aka ? character.aka : ""
+    }</p>
   </div>`;
-  // Finally merge it with cardsContainer innerHtml
   cardsContainer.innerHTML += characterTemplate;
 });
+// Bonus: Overlay is added
+const overlay = document.getElementById("overlay");
+const overlayCloseBtn = document.querySelector(".overlay-close-btn");
+overlayCloseBtn.addEventListener("click", () => {
+  overlay.classList.remove("show");
+});
+const overlayImage = document.querySelector(".overlay-image");
+const overlayName = document.querySelector(".overlay-name");
+function changeOverlay(name, image) {
+  overlayName.innerText = name;
+  overlayImage.setAttribute("src", image);
+  overlay.classList.add("show");
+}
+
